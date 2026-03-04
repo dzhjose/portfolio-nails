@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// 1. Configuración de imágenes placeholder (Ancho: 800, Alto: 1000 para proporción 4:5)
+const width = 800;
+const height = 1000;
+
+// 2. Base de datos falsa de diseños (para no repetir código)
+const disenos = [
+  { id: 1, categoria: "Nail Art", titulo: "Geometría Neón" },
+  { id: 2, categoria: "Gelish", titulo: "Pastel Minimal" },
+  { id: 3, categoria: "Acrílico", titulo: "Encapsulado Oro" },
+  { id: 4, categoria: "Nail Art", titulo: "Stamping Floral" },
+  { id: 5, categoria: "Minimalista", titulo: "Líneas Finas" },
+  { id: 6, categoria: "Tendencia", titulo: "Efecto Aurora" },
+  { id: 7, categoria: "Acrílico", titulo: "French Moderno" },
+  { id: 8, categoria: "Gelish", titulo: "Rojo Clásico" },
+];
+---
+
+<Layout title="Galería de Diseños Exclusivos">
+  <section class="bg-white py-24 md:py-32 border-b border-slate-100">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <span class="text-xs tracking-[0.4em] uppercase text-slate-400">
+        Portafolio
+      </span>
+
+      <h1
+        class="mt-6 text-5xl md:text-6xl font-['Playfair_Display'] font-semibold text-slate-900 leading-tight"
+      >
+        Diseño de Uñas
+        <span class="italic font-normal text-slate-500"> Exclusivo</span>
+      </h1>
+
+      <p class="mt-8 max-w-2xl mx-auto text-lg text-slate-500 leading-relaxed">
+        Una colección curada de trabajos en gel, acrílico y diseño avanzado.
+        Encuentra la inspiración para tu próxima cita.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {
+          disenos.map((diseno) => (
+            <div
+              data-reveal
+              data-reveal-delay="150"
+              class="group relative overflow-hidden rounded-2xl bg-white border border-slate-100 hover:shadow-md pacity-0 translate-y-6 transition-all duration-700 ease-out"
+            >
+              <img
+                src={`https://picsum.photos/${width}/${height}?random=${diseno.id}`}
+                alt={`Diseño de uñas ${diseno.titulo}`}
+                class="w-full h-auto object-cover aspect-4/5 transition-transform duration-500 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+
+              <div class="p-6">
+                <span class="text-xs uppercase tracking-widest text-slate-400">
+                  {diseno.categoria}
+                </span>
+
+                <h3 class="mt-2 text-xl font-['Playfair_Display'] font-semibold text-slate-900">
+                  {diseno.titulo}
+                </h3>
+
+                <a
+                  href="/contacto"
+                  class="mt-4 inline-block text-sm font-semibold text-slate-900 border-b border-slate-300 pb-1 hover:border-slate-900 transition-colors"
+                >
+                  Agendar este diseño →
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

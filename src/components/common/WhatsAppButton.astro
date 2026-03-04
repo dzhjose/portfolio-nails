@@ -1,0 +1,32 @@
+---
+// Definimos las variables para que sea fácil cambiarlas después
+const phone = "51937422685"; // Reemplaza con tu número (Código de país + número, sin + ni espacios)
+const message =
+  "¡Hola! Vi tu portfolio y me gustaría agendar una cita para mis uñas. ✨";
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] hover:scale-110 transition-all duration-300 group"
+  aria-label="Contactar por WhatsApp"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-8 h-8 fill-current"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.887-11.891 3.181 0 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.237 3.484 8.417 0 6.556-5.332 11.892-11.887 11.892-1.995 0-3.956-.502-5.706-1.453l-6.289 1.657zm6.224-3.811l.445.263c1.452.863 3.124 1.319 4.834 1.319 5.176 0 9.387-4.211 9.387-9.39 0-2.51-.979-4.869-2.757-6.65-1.779-1.78-4.14-2.759-6.645-2.759-5.176 0-9.386 4.211-9.386 9.39 0 1.761.491 3.479 1.418 4.981l.288.471-.99 3.618 3.711-.972zm9.872-5.406c-.19-.094-1.127-.556-1.302-.619-.174-.063-.301-.094-.427.094-.127.189-.491.619-.603.744-.111.124-.222.14-.412.045-.19-.094-.801-.294-1.527-.942-.566-.505-.947-1.129-1.058-1.32-.111-.19-.012-.292.083-.386.086-.085.19-.221.285-.332.095-.11.127-.184.19-.307.064-.124.032-.231-.016-.325-.047-.095-.427-1.03-.585-1.41-.154-.37-.311-.319-.427-.325-.109-.005-.236-.005-.363-.005-.127 0-.332.047-.506.236-.174.189-.665.651-.665 1.589 0 .937.681 1.842.776 1.968.095.127 1.341 2.048 3.25 2.872.454.196.808.314 1.084.402.456.145.87.125 1.198.076.365-.054 1.127-.461 1.285-.905.158-.444.158-.825.111-.905-.047-.08-.174-.127-.363-.221z"
+    ></path>
+  </svg>
+
+  <span
+    class="absolute right-20 bg-slate-800 text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+  >
+    ¡Agenda tu cita ahora!
+  </span>
+</a>

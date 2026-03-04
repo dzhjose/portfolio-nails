@@ -1,0 +1,86 @@
+---
+interface Props {
+  title: string;
+  duration: string;
+  description: string;
+  features: string[];
+  isPopular?: boolean;
+}
+
+const {
+  title,
+  duration,
+  description,
+  features,
+  isPopular = false,
+} = Astro.props;
+
+// Configuración de WhatsApp con mensaje personalizado
+const phone = "5491122334455";
+const message = `¡Hola! ✨ Me gustaría recibir más información sobre el servicio de: ${title}.`;
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<div
+  class={`relative flex flex-col h-full rounded-2xl border transition-all duration-300
+  ${
+    isPopular
+      ? "bg-white border-slate-200 shadow-md"
+      : "bg-white border-slate-100 hover:border-slate-200"
+  }
+  `}
+>
+  {
+    isPopular && (
+      <span class="absolute -top-3 right-6 bg-slate-900 text-white text-[10px] tracking-[0.2em] uppercase px-4 py-1 rounded-full">
+        Popular
+      </span>
+    )
+  }
+
+  <div class="p-8 md:p-10 flex flex-col h-full">
+    <!-- Header -->
+    <div class="mb-6">
+      <h3
+        class="text-2xl font-['Playfair_Display'] font-semibold text-slate-900 mb-3"
+      >
+        {title}
+      </h3>
+
+      <p class="text-sm text-slate-500 leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Duración -->
+    <div class="mb-6 text-xs uppercase tracking-widest text-slate-400">
+      Duración · {duration}
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-slate-100 mb-6"></div>
+
+    <!-- Lista -->
+    <ul class="space-y-3 mb-8">
+      {
+        features.map((feature) => (
+          <li class="flex items-start gap-3 text-sm text-slate-600">
+            <span class="mt-[6px] w-1.5 h-1.5 rounded-full bg-slate-400" />
+            <span>{feature}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- CTA -->
+    <div class="mt-auto">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        class="inline-block text-sm font-semibold text-slate-900 border-b border-slate-300 pb-1 hover:border-slate-900 transition-colors"
+      >
+        Agendar por WhatsApp →
+      </a>
+    </div>
+  </div>
+</div>

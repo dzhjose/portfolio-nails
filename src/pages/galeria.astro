@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "photoswipe/style.css";
+---
+
+<Layout title="Galería">
+  <section class="bg-white py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Encabezado -->
+      <div
+        data-reveal="hero"
+        class="text-center mb-24 opacity-0 translate-y-4 transition-all duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+      >
+        <h1
+          class="font-['Playfair_Display'] text-4xl md:text-5xl font-semibold text-slate-900 mb-8"
+        >
+          Galería
+        </h1>
+
+        <p class="text-slate-500 max-w-xl mx-auto leading-relaxed">
+          Una selección de diseños realizados con precisión, detalle y
+          elegancia.
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div
+        id="gallery"
+        class="columns-1 sm:columns-2 md:columns-3 gap-8 space-y-8"
+      >
+        <!-- Item -->
+        <a
+          href="/images/nails1.jpg"
+          data-pswp-width="1200"
+          data-pswp-height="1500"
+          target="_blank"
+          data-reveal
+          class="block break-inside-avoid opacity-0 translate-y-6 transition-all duration-700 ease-out group"
+        >
+          <div class="overflow-hidden bg-slate-100">
+            <img
+              src="/images/nails1.jpg"
+              alt="Diseño 1"
+              class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+        </a>
+
+        <a
+          href="/images/nails2.jpg"
+          data-pswp-width="1200"
+          data-pswp-height="1500"
+          target="_blank"
+          data-reveal
+          data-reveal-delay="100"
+          class="block break-inside-avoid opacity-0 translate-y-6 transition-all duration-700 ease-out group"
+        >
+          <div class="overflow-hidden bg-slate-100">
+            <img
+              src="/images/nails2.jpg"
+              alt="Diseño 2"
+              class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+        </a>
+
+        <a
+          href="/images/nails3.jpg"
+          data-pswp-width="1200"
+          data-pswp-height="1500"
+          target="_blank"
+          data-reveal
+          data-reveal-delay="200"
+          class="block break-inside-avoid opacity-0 translate-y-6 transition-all duration-700 ease-out group"
+        >
+          <div class="overflow-hidden bg-slate-100">
+            <img
+              src="/images/nails3.jpg"
+              alt="Diseño 3"
+              class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script PhotoSwipe -->
+  <script type="module">
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery",
+      children: "a",
+      pswpModule: () => import("photoswipe"),
+    });
+
+    lightbox.init();
+
+    // Re-inicializar en navegación con View Transitions
+    document.addEventListener("astro:page-load", () => {
+      lightbox.init();
+    });
+  </script>
+</Layout>

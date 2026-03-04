@@ -1,0 +1,19 @@
+---
+const { title, category, image } = Astro.props;
+---
+
+<div
+  class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all"
+>
+  <img
+    src={image}
+    alt={title}
+    class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+  />
+  <div
+    class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white"
+  >
+    <h3 class="text-xl font-bold">{title}</h3>
+    <p class="text-sm opacity-80">{category}</p>
+  </div>
+</div>

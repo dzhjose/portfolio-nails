@@ -1,0 +1,71 @@
+---
+import ServiceCard from "../components/ServiceCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Esmaltado Semi",
+    duration: "60 min",
+    description:
+      "Ideal para un look impecable y duradero en tus uñas naturales con acabado brillante.",
+    features: [
+      "Limpieza de cutícula",
+      "Limado de forma",
+      "Base fortalecedora",
+      "Color a elección",
+    ],
+  },
+  {
+    title: "Soft Gel / Press On",
+    duration: "90 min",
+    description:
+      "Extensión inmediata con acabado ultra natural, ideal para ocasiones especiales.",
+    isPopular: true,
+    features: [
+      "Preparación química",
+      "Colocación de tips",
+      "Nivelación",
+      "Diseño simple",
+      "Garantía de 7 días",
+    ],
+  },
+  {
+    title: "Retoque Acrílico",
+    duration: "120 min",
+    description:
+      "Mantenimiento profesional para tus extensiones de acrílico o polygel.",
+    features: [
+      "Retiro de crecimiento",
+      "Relleno de material",
+      "Cambio de diseño",
+      "Pulido final",
+    ],
+  },
+];
+---
+
+<Layout title="Nuestros Servicios">
+  <section class="py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <h2 class="text-xs uppercase tracking-[0.4em] text-slate-400 mb-4">
+          Menú de Atenciones
+        </h2>
+
+        <h3
+          class="text-4xl md:text-5xl font-['Playfair_Display'] font-semibold text-slate-900 mb-6"
+        >
+          Servicios Profesionales
+        </h3>
+
+        <p class="text-slate-500">
+          Elegí tu servicio y reservá directamente por WhatsApp.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {services.map((service) => <ServiceCard {...service} />)}
+      </div>
+    </div>
+  </section>
+</Layout>

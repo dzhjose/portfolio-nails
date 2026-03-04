@@ -1,0 +1,90 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white border-t border-slate-100 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+      <!-- Marca -->
+      <div>
+        <h3
+          class="font-['Playfair_Display'] text-2xl font-semibold text-slate-900 mb-6"
+        >
+          NailArt Studio
+        </h3>
+
+        <p class="text-slate-500 text-sm leading-relaxed max-w-sm">
+          Especialista en diseño avanzado y cuidado integral de uñas. Un enfoque
+          delicado, profesional y personalizado.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div>
+        <h4 class="text-xs uppercase tracking-[0.3em] text-slate-400 mb-6">
+          Explorar
+        </h4>
+
+        <div class="flex flex-col space-y-3 text-sm">
+          <a
+            href="/galeria"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            Portafolio
+          </a>
+
+          <a
+            href="/cuidados"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            Cuidados Post-Cita
+          </a>
+
+          <a
+            href="/politicas"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            Políticas del salón
+          </a>
+        </div>
+      </div>
+
+      <!-- Redes -->
+      <div>
+        <h4 class="text-xs uppercase tracking-[0.3em] text-slate-400 mb-6">
+          Conectar
+        </h4>
+
+        <div class="flex space-x-6 text-sm">
+          <a
+            href="#"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="#"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            TikTok
+          </a>
+
+          <a
+            href="#"
+            class="text-slate-600 hover:text-slate-900 transition-colors"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea inferior -->
+    <div class="border-t border-slate-100 pt-8 text-center">
+      <p class="text-xs text-slate-400 tracking-wide">
+        © {currentYear} NailArt Studio — Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
